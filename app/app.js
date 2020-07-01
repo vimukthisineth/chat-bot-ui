@@ -13,6 +13,12 @@ app.controller('MainController', ['$scope', '$rootScope', 'ChatService', functio
         $scope.currentQuestionIndex++;
         console.log(question);
     }
+    
+    $scope.submitAnswers = function () {
+        ChatService.newAnswerProfile({chatQuestions: $scope.allQuestions}, function (result) {
+            alert("Thank you !");
+        });
+    }
 }]);
 
 app.factory('ChatFactory', ['$http', function ($http) {
